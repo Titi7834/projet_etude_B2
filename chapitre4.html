@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyChallenge - Documentation Python - Fonctions</title>
+    <link rel="stylesheet" href="styles/chapitre4.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <a href="index.html" class="logo">Py<span>Challenge</span></a>
+                <div class="doc-title">Documentation Python</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="explorer.html">Défis</a></li>
+                <li><a href="apprendre.html">Apprendre</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="toc-header">
+                <h2 class="toc-title">Guide d'apprentissage Python</h2>
+                <div class="progress-info">Progression: 40%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <ul class="chapter-list">
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>1. Introduction à Python</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="#" class="section-link">Qu'est-ce que Python ?</a></li>
+                        <li><a href="#" class="section-link">Installation et configuration</a></li>
+                        <li><a href="#" class="section-link">Votre premier programme</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>2. Fondamentaux</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="#" class="section-link">Variables et types de données</a></li>
+                        <li><a href="#" class="section-link">Opérateurs</a></li>
+                        <li><a href="#" class="section-link">Structures conditionnelles</a></li>
+                        <li><a href="#" class="section-link">Boucles</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>3. Structures de données</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="chapitre3.html#lists" class="section-link active">Listes</a></li>
+                        <li><a href="chapitre3.html#tuples" class="section-link">Tuples</a></li>
+                        <li><a href="chapitre3.html#dictionaries" class="section-link">Dictionnaires</a></li>
+                        <li><a href="chapitre3.html#sets" class="section-link">Ensembles</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter expanded">
+                    <button class="chapter-button active">
+                        <span>4. Fonctions</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="#definir-fonctions" class="section-link active">Définir des fonctions</a></li>
+                        <li><a href="#arguments-retour" class="section-link">Arguments et retour</a></li>
+                        <li><a href="#portee-variables" class="section-link">Portée des variables</a></li>
+                        <li><a href="#fonctions-lambda" class="section-link">Fonctions lambda</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>5. Programmation orientée objet</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="chapitre5.html#classes-objets" class="section-link active">Classes et objets</a></li>
+                        <li><a href="chapitre5.html#attributs-methodes" class="section-link">Attributs et méthodes</a></li>
+                        <li><a href="chapitre5.html#heritage" class="section-link">Héritage</a></li>
+                        <li><a href="chapitre5.html#polymorphisme" class="section-link">Polymorphisme</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>6. Prochainement...</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="prochainement.html" class="section-link">Prochainement...</a></li>
+                    </ul>
+                </li>
+                
+                
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <section class="doc-section" id="definir-fonctions">
+                <h1>Fonctions en Python</h1>
+                <p>Les fonctions sont des blocs de code réutilisables conçus pour effectuer une tâche spécifique. Elles constituent un élément fondamental de la programmation en Python, permettant d'organiser, de moduler et de réutiliser votre code efficacement.</p>
+                
+                <h2>Définir des fonctions</h2>
+                <p>En Python, une fonction est définie à l'aide du mot-clé <code>def</code>, suivi du nom de la fonction et d'une paire de parenthèses. Les instructions de la fonction sont indentées pour former un bloc de code.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">fonction_simple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def saluer():
+    """Cette fonction affiche un message de bienvenue."""
+    print("Bonjour, bienvenue dans ce tutoriel sur les fonctions Python!")
+
+# Appel de la fonction
+saluer()</code></pre>
+                </div>
+                
+                <h3>Docstrings</h3>
+                <p>Remarquez la chaîne de caractères entre triple guillemets après la définition de la fonction. Il s'agit d'une <strong>docstring</strong> (documentation string), qui explique le but de la fonction. C'est une bonne pratique que tout développeur Python devrait adopter.</p>
+                
+                <div class="tip-box">
+                    <div class="box-icon">💡</div>
+                    <div>
+                        <p>Documenter vos fonctions avec des docstrings permet non seulement de rendre votre code plus lisible, mais aussi d'utiliser des outils comme <code>help()</code> pour afficher la documentation de votre fonction.</p>
+                    </div>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">docstring_exemple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def calculer_aire_rectangle(longueur, largeur):
+    """
+    Calcule l'aire d'un rectangle.
+    
+    Args:
+        longueur (float): La longueur du rectangle.
+        largeur (float): La largeur du rectangle.
+        
+    Returns:
+        float: L'aire du rectangle.
+    """
+    return longueur * largeur
+
+# Afficher la documentation de la fonction
+help(calculer_aire_rectangle)</code></pre>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="arguments-retour">
+                <h2>Arguments et valeurs de retour</h2>
+                <p>Les fonctions peuvent accepter des arguments (paramètres) et renvoyer des valeurs à l'aide du mot-clé <code>return</code>.</p>
+                
+                <h3>Arguments de fonction</h3>
+                <p>Les arguments sont des valeurs que vous passez à une fonction lors de son appel. Ils permettent aux fonctions d'être plus flexibles et réutilisables.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">arguments_simples.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def saluer_personne(nom):
+    """Salue une personne par son nom."""
+    print(f"Bonjour, {nom}!")
+
+# Appel avec différents arguments
+saluer_personne("Alice")
+saluer_personne("Bob")</code></pre>
+                </div>
+                
+                <h3>Arguments positionnels et nommés</h3>
+                <p>Python offre deux façons de passer des arguments à une fonction :</p>
+                <ul>
+                    <li><strong>Arguments positionnels</strong> : L'ordre des arguments est important.</li>
+                    <li><strong>Arguments nommés</strong> : Vous spécifiez explicitement quel argument correspond à quel paramètre.</li>
+                </ul>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">types_arguments.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def afficher_infos(nom, age, ville):
+    """Affiche les informations d'une personne."""
+    print(f"{nom} a {age} ans et habite à {ville}.")
+
+# Arguments positionnels
+afficher_infos("Alice", 25, "Paris")
+
+# Arguments nommés
+afficher_infos(age=30, ville="Lyon", nom="Bob")
+
+# Mélange (les positionnels d'abord, puis les nommés)
+afficher_infos("Charlie", ville="Marseille", age=35)</code></pre>
+                </div>
+                
+                <h3>Arguments par défaut</h3>
+                <p>Vous pouvez attribuer des valeurs par défaut aux paramètres. Ces valeurs sont utilisées si aucun argument n'est fourni lors de l'appel de la fonction.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">valeurs_par_defaut.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def saluer_utilisateur(nom, message="Bienvenue sur notre site"):
+    """Salue un utilisateur avec un message personnalisable."""
+    print(f"Bonjour {nom}! {message}")
+
+# Appel avec seulement le nom
+saluer_utilisateur("Alice")
+
+# Appel avec nom et message personnalisé
+saluer_utilisateur("Bob", "Heureux de vous revoir!")</code></pre>
+                </div>
+                
+                <div class="warning-box">
+                    <div class="box-icon">⚠️</div>
+                    <div>
+                        <p>Les paramètres avec des valeurs par défaut doivent toujours être placés après les paramètres sans valeur par défaut. Sinon, Python générera une erreur de syntaxe.</p>
+                    </div>
+                </div>
+                
+                <h3>Nombre variable d'arguments</h3>
+                <p>Python permet d'accepter un nombre variable d'arguments dans une fonction grâce aux notations <code>*args</code> et <code>**kwargs</code>.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">args_kwargs.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code># *args pour un nombre variable d'arguments positionnels
+def calculer_somme(*nombres):
+    """Calcule la somme de tous les nombres fournis."""
+    resultat = 0
+    for nombre in nombres:
+        resultat += nombre
+    return resultat
+
+# Appel avec différents nombres d'arguments
+print(calculer_somme(1, 2))  # 3
+print(calculer_somme(1, 2, 3, 4, 5))  # 15
+
+# **kwargs pour un nombre variable d'arguments nommés
+def afficher_infos_personne(**infos):
+    """Affiche toutes les informations fournies sur une personne."""
+    for cle, valeur in infos.items():
+        print(f"{cle}: {valeur}")
+
+# Appel avec différents arguments nommés
+afficher_infos_personne(nom="Alice", age=25, ville="Paris", profession="Développeuse")</code></pre>
+                </div>
+                
+                <h3>Valeurs de retour</h3>
+                <p>Les fonctions peuvent renvoyer des valeurs à l'aide du mot-clé <code>return</code>. Une fonction sans instruction <code>return</code> explicite renvoie <code>None</code> par défaut.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">valeurs_retour.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def calculer_carre(nombre):
+    """Calcule le carré d'un nombre."""
+    return nombre * nombre
+
+# Utilisation de la valeur de retour
+resultat = calculer_carre(5)
+print(f"Le carré de 5 est {resultat}")
+
+# Retour de plusieurs valeurs
+def obtenir_dimensions_rectangle(aire, ratio_longueur_largeur):
+    """Calcule les dimensions d'un rectangle basé sur son aire et son ratio longueur/largeur."""
+    # ratio = longueur / largeur
+    largeur = (aire / ratio_longueur_largeur) ** 0.5
+    longueur = largeur * ratio_longueur_largeur
+    return longueur, largeur
+
+longueur, largeur = obtenir_dimensions_rectangle(100, 2)
+print(f"Un rectangle d'aire 100 et de ratio 2:1 a pour dimensions: {longueur} x {largeur}")</code></pre>
+                </div>
+                
+                <div class="note-box">
+                    <div class="box-icon">📝</div>
+                    <div>
+                        <p>En Python, une fonction peut retourner plusieurs valeurs en les séparant par des virgules. En réalité, Python crée un tuple avec ces valeurs, que l'on peut ensuite "déballer" dans plusieurs variables.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="portee-variables">
+                <h2>Portée des variables</h2>
+                <p>La portée (scope) d'une variable détermine où cette variable peut être utilisée dans votre programme. En Python, les variables définies à l'intérieur d'une fonction ont une portée locale, tandis que les variables définies en dehors des fonctions ont une portée globale.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">portee_variables.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>message = "Bonjour depuis l'espace global"  # Variable globale
+
+def afficher_message():
+    message_local = "Bonjour depuis l'espace local"  # Variable locale
+    print(message)  # Accès à la variable globale
+    print(message_local)  # Accès à la variable locale
+
+afficher_message()
+print(message)  # Fonctionne
+# print(message_local)  # Erreur: la variable locale n'existe pas dans l'espace global</code></pre>
+                </div>
+                
+                <h3>Modification de variables globales</h3>
+                <p>Pour modifier une variable globale à l'intérieur d'une fonction, vous devez utiliser le mot-clé <code>global</code>.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">variables_globales.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>compteur = 0  # Variable globale
+
+def incrementer_compteur():
+    global compteur  # Déclare que nous utilisons la variable globale
+    compteur += 1
+    print(f"Compteur dans la fonction: {compteur}")
+
+print(f"Compteur avant: {compteur}")
+incrementer_compteur()
+print(f"Compteur après: {compteur}")</code></pre>
+                </div>
+                
+                <div class="warning-box">
+                    <div class="box-icon">⚠️</div>
+                    <div>
+                        <p>Il est généralement déconseillé d'utiliser trop de variables globales car cela peut rendre votre code difficile à comprendre et à maintenir. Préférez passer des arguments et renvoyer des valeurs.</p>
+                    </div>
+                </div>
+                
+                <h3>Variables non locales</h3>
+                <p>Dans le cas des fonctions imbriquées, vous pouvez utiliser le mot-clé <code>nonlocal</code> pour accéder et modifier une variable définie dans la fonction englobante.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">nonlocal_exemple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>def compteur_externe():
+    compte = 0
+    
+    def incrementer():
+        nonlocal compte  # Utilise la variable de la fonction englobante
+        compte += 1
+        return compte
+    
+    return incrementer
+
+mon_compteur = compteur_externe()
+print(mon_compteur())  # 1
+print(mon_compteur())  # 2
+print(mon_compteur())  # 3</code></pre>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="fonctions-lambda">
+                <h2>Fonctions lambda</h2>
+                <p>Les fonctions lambda, également appelées fonctions anonymes, sont de petites fonctions sans nom qui peuvent être définies en une seule ligne. Elles sont utiles pour des opérations simples et ponctuelles.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">lambda_exemples.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code># Fonction lambda simple
+carre = lambda x: x * x
+print(carre(5))  # 25
+
+# Utilisation avec map()
+nombres = [1, 2, 3, 4, 5]
+carres = list(map(lambda x: x * x, nombres))
+print(carres)  # [1, 4, 9, 16, 25]
+
+# Utilisation avec filter()
+nombres = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+nombres_pairs = list(filter(lambda x: x % 2 == 0, nombres))
+print(nombres_pairs)  # [2, 4, 6, 8, 10]
+
+# Utilisation avec sorted()
+personnes = [
+    {"nom": "Alice", "age": 25},
+    {"nom": "Bob", "age": 20},
+    {"nom": "Charlie", "age": 30}
+]
+personnes_triees = sorted(personnes, key=lambda p: p["age"])
+print(personnes_triees)</code></pre>
+                </div>
+                
+                <div class="note-box">
+                    <div class="box-icon">📝</div>
+                    <div>
+                        <p>Les fonctions lambda sont limitées à une seule expression. Pour des fonctionnalités plus complexes, utilisez une fonction définie avec <code>def</code>.</p>
+                    </div>
+                </div>
+                
+                <h3>Exercice pratique : Trier des chaînes</h3>
+                <p>Voici un exercice pour pratiquer l'utilisation des fonctions lambda avec <code>sorted()</code>. Le but est de trier une liste de chaînes selon différents critères.</p>
+                
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">exercice_lambda.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>mots = ["python", "programmation", "fonction", "lambda", "développement"]
+
+# Tri par longueur (du plus court au plus long)
+tri_longueur = sorted(mots, key=lambda mot: len(mot))
+print("Tri par longueur:", tri_longueur)
+
+# Tri par longueur (du plus long au plus court)
+tri_longueur_inverse = sorted(mots, key=lambda mot: len(mot), reverse=True)
+print("Tri par longueur inverse:", tri_longueur_inverse)
+
+# Tri par dernière lettre
+tri_derniere_lettre = sorted(mots, key=lambda mot: mot[-1])
+print("Tri par dernière lettre:", tri_derniere_lettre)
+
+# À vous de jouer!
+# Essayez de trier les mots par nombre de voyelles</code></pre>
+                </div>
+                
+                
+            </section>
+            
+            <div class="navigation-buttons">
+                <button class="nav-button prev" onclick="location.href='chapitre3.html'"><span class="icon">← </span>Précédent </button>
+                <button class="nav-button next" onclick="location.href='chapitre5.html'">Suivant <span class="icon">→</span></button>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Sidebar toggle
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+        
+        // Chapter expand/collapse
+        document.querySelectorAll('.chapter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const chapter = this.parentElement;
+                chapter.classList.toggle('expanded');
+            });
+        });
+        
+        // Code copy functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.closest('.code-block');
+                const code = codeBlock.querySelector('code').textContent;
+                navigator.clipboard.writeText(code);
+                
+                const copyMessage = codeBlock.querySelector('.copy-message');
+                copyMessage.style.opacity = '1';
+                setTimeout(() => {
+                    copyMessage.style.opacity = '0';
+                }, 2000);
+            });
+        });
+        
+        // Interactive demo functionality
+        document.getElementById('runDemo').addEventListener('click', function() {
+            const userCode = document.getElementById('demoInput').value;
+            const outputDiv = document.getElementById('demoOutput');
+            
+            // Check if user completed the functions
+            if (userCode.includes('def multiplier') && userCode.includes('def diviser')) {
+                outputDiv.textContent = "Bravo! Vous avez complété les fonctions manquantes.";
+                // Dans un cas réel, on exécuterait le code ici
+            } else {
+                outputDiv.textContent = "Pensez à définir les fonctions multiplier() et diviser().";
+            }
+        });
+    </script>
+</body>
+</html>
