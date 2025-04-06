@@ -8,7 +8,7 @@ import json
 import tempfile
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["http://192.168.1.55:80","http://192.168.1.55:443","http://127.0.0.1:5500", "http://localhost:5500", "https://an4lisateur.freeboxos.fr:53000","http://an4lisateur.freeboxos.fr:54000/"]}})
+CORS(app)
 
 # Client Docker
 client = docker.from_env()
