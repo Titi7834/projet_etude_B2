@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyChallenge - Programmation orientée objet</title>
+    <link rel="stylesheet" href="styles/chapitre5.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-toggle" id="mobileToggle">☰</button>
+                <a href="index.html" class="logo">Py<span>Challenge</span></a>
+                <div class="doc-title">Documentation Python</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="explorer.html">Défis</a></li>
+                <li><a href="apprendre.html">Apprendre</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="toc-header">
+                <h2 class="toc-title">Guide d'apprentissage Python</h2>
+                <div class="progress-info">Progression: 42%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            
+            <ul class="chapter-list">
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>1. Introduction à Python</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="apprendre.html#intro" class="section-link">Qu'est-ce que Python ?</a></li>
+                        <li><a href="apprendre.html#installation" class="section-link">Installation et configuration</a></li>
+                        <li><a href="apprendre.html#first-program" class="section-link">Votre premier programme</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>2. Fondamentaux</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="chapitre2.html#variables" class="section-link">Variables et types de données</a></li>
+                        <li><a href="chapitre2.html#operators" class="section-link">Opérateurs</a></li>
+                        <li><a href="chapitre2.html#conditions" class="section-link">Structures conditionnelles</a></li>
+                        <li><a href="chapitre2.html#loops" class="section-link">Boucles</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>3. Structures de données</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="chapitre3.html#lists" class="section-link active">Listes</a></li>
+                        <li><a href="chapitre3.html#tuples" class="section-link">Tuples</a></li>
+                        <li><a href="chapitre3.html#dictionaries" class="section-link">Dictionnaires</a></li>
+                        <li><a href="chapitre3.html#sets" class="section-link">Ensembles</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>4. Fonctions</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="chapitre4.html#definir-fonctions" class="section-link active">Définir des fonctions</a></li>
+                        <li><a href="chapitre4.html#arguments-retour" class="section-link">Arguments et retour</a></li>
+                        <li><a href="chapitre4.html#portee-variables" class="section-link">Portée des variables</a></li>
+                        <li><a href="chapitre4.html#fonctions-lambda" class="section-link">Fonctions lambda</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter expanded">
+                    <button class="chapter-button active">
+                        <span>5. Programmation orientée objet</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="#classes-objets" class="section-link active">Classes et objets</a></li>
+                        <li><a href="#attributs-methodes" class="section-link">Attributs et méthodes</a></li>
+                        <li><a href="#heritage" class="section-link">Héritage</a></li>
+                        <li><a href="#polymorphisme" class="section-link">Polymorphisme</a></li>
+                    </ul>
+                </li>
+                
+                <li class="chapter">
+                    <button class="chapter-button">
+                        <span>6. Prochainement...</span>
+                        <span class="icon">▶</span>
+                    </button>
+                    <ul class="section-list">
+                        <li><a href="prochainement.html" class="section-link">Prochainement...</a></li>
+                    </ul>
+                </li>
+                
+                
+            </ul>
+        </aside>
+        
+        <main class="content">
+            <section class="doc-section" id="classes-objets">
+                <h1>Programmation orientée objet</h1>
+                <p>La programmation orientée objet (POO) est un paradigme de programmation qui utilise les "objets" comme composants fondamentaux. Python, en tant que langage multiprogramme, offre un excellent support pour la POO tout en restant simple et intuitif.</p>
+                
+                <h2>Classes et objets</h2>
+                <p>Dans la programmation orientée objet, une <strong>classe</strong> est un modèle ou un plan pour créer des objets. Un <strong>objet</strong> est une instance d'une classe - une entité qui contient des données et des comportements définis par sa classe.</p>
+
+                <div class="note-box">
+                    <div class="box-icon">ℹ️</div>
+                    <div>
+                        <p>Pensez à une classe comme à un moule à gâteau et aux objets comme aux gâteaux créés à partir de ce moule. Le moule définit la forme et la structure, mais chaque gâteau peut avoir des ingrédients ou des décorations différentes.</p>
+                    </div>
+                </div>
+                
+                <h3>Création d'une classe</h3>
+                <p>En Python, nous utilisons le mot-clé <code>class</code> pour créer une classe. La convention de nommage pour les classes est d'utiliser la notation "CamelCase" (première lettre de chaque mot en majuscule, sans espace).</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">classe_simple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Personne:
+    """Classe représentant une personne"""
+    pass  # Le mot-clé 'pass' permet de définir une classe vide</code></pre>
+                </div>
+
+                <h3>Création d'objets (instances)</h3>
+                <p>Une fois que nous avons défini une classe, nous pouvons créer des objets (instances) de cette classe :</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">creation_objets.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Personne:
+    """Classe représentant une personne"""
+    pass
+
+# Création de deux objets de type Personne
+person1 = Personne()
+person2 = Personne()
+
+print(person1)  # Output: <__main__.Personne object at 0x...>
+print(person2)  # Output: <__main__.Personne object at 0x...></code></pre>
+                </div>
+
+                <p>Chaque objet créé est une instance unique de la classe, avec sa propre identité (emplacement mémoire) comme indiqué par les adresses différentes dans l'output.</p>
+
+                <div class="demo-container">
+                    <div class="demo-header">
+                        <h3 class="demo-title">Exemple pratique: Modéliser un compte bancaire</h3>
+                    </div>
+                    <p>Imaginons que nous voulions modéliser un compte bancaire en POO :</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">compte_bancaire.py</span>
+                            <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                        </div>
+                        <div class="copy-message">Copié !</div>
+                        <pre><code>class CompteBancaire:
+    """Classe représentant un compte bancaire"""
+    
+    def __init__(self, titulaire, solde=0):
+        self.titulaire = titulaire
+        self.solde = solde
+    
+    def afficher_details(self):
+        print(f"Titulaire: {self.titulaire}")
+        print(f"Solde: {self.solde} €")
+
+# Création d'objets CompteBancaire
+compte1 = CompteBancaire("Marie Dupont", 1500)
+compte2 = CompteBancaire("Jean Martin")
+
+# Accès aux attributs
+print(compte1.titulaire)  # Output: Marie Dupont
+print(compte2.solde)      # Output: 0
+
+# Appel de méthodes
+compte1.afficher_details()</code></pre>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="attributs-methodes">
+                <h2>Attributs et méthodes</h2>
+                <p>Les classes sont composées d'<strong>attributs</strong> (données) et de <strong>méthodes</strong> (fonctions). Les attributs stockent des informations sur l'objet, tandis que les méthodes définissent ce que l'objet peut faire.</p>
+                
+                <h3>Le constructeur: __init__()</h3>
+                <p>La méthode <code>__init__()</code> est un constructeur spécial qui est appelé automatiquement lorsqu'un nouvel objet est créé. Elle initialise les attributs de l'objet.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">constructeur.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Cercle:
+    """Classe représentant un cercle géométrique"""
+    
+    def __init__(self, rayon):
+        """Initialisation avec le rayon du cercle"""
+        self.rayon = rayon  # Attribut d'instance
+    
+# Création d'un cercle avec un rayon de 5
+mon_cercle = Cercle(5)
+print(mon_cercle.rayon)  # Output: 5</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <div class="box-icon">💡</div>
+                    <div>
+                        <p>Le paramètre <code>self</code> fait référence à l'instance actuelle de la classe et doit être le premier paramètre de toute méthode d'instance. Il est implicitement passé lorsqu'une méthode est appelée, c'est pourquoi vous ne le spécifiez pas lors de l'appel.</p>
+                    </div>
+                </div>
+
+                <h3>Types d'attributs</h3>
+                <p>Il existe deux types principaux d'attributs en Python :</p>
+                
+                <ul>
+                    <li><strong>Attributs d'instance</strong> : Propres à chaque instance (objet) de la classe</li>
+                    <li><strong>Attributs de classe</strong> : Partagés par toutes les instances de la classe</li>
+                </ul>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">types_attributs.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Voiture:
+    # Attribut de classe - partagé par toutes les voitures
+    nombre_de_roues = 4
+    
+    def __init__(self, marque, modele):
+        # Attributs d'instance - uniques pour chaque voiture
+        self.marque = marque
+        self.modele = modele
+        self.vitesse = 0
+    
+# Création de deux voitures
+voiture1 = Voiture("Renault", "Clio")
+voiture2 = Voiture("Peugeot", "208")
+
+# Accès aux attributs d'instance
+print(voiture1.marque)  # Output: Renault
+print(voiture2.marque)  # Output: Peugeot
+
+# Accès à l'attribut de classe
+print(voiture1.nombre_de_roues)  # Output: 4
+print(voiture2.nombre_de_roues)  # Output: 4
+print(Voiture.nombre_de_roues)   # Output: 4 - accès via la classe</code></pre>
+                </div>
+
+                <h3>Types de méthodes</h3>
+                <p>Il existe trois types principaux de méthodes en Python :</p>
+                
+                <ul>
+                    <li><strong>Méthodes d'instance</strong> : Opèrent sur une instance spécifique de la classe</li>
+                    <li><strong>Méthodes de classe</strong> : Opèrent sur la classe plutôt que sur les instances</li>
+                    <li><strong>Méthodes statiques</strong> : Ne dépendent ni de la classe ni des instances</li>
+                </ul>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">types_methodes.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class MaClasse:
+    compteur = 0  # Attribut de classe
+    
+    def __init__(self, valeur):
+        self.valeur = valeur  # Attribut d'instance
+        MaClasse.compteur += 1
+    
+    # Méthode d'instance - utilise self
+    def methode_instance(self):
+        return f"Instance avec valeur: {self.valeur}"
+    
+    # Méthode de classe - utilise cls
+    @classmethod
+    def methode_classe(cls):
+        return f"Nombre total d'instances créées: {cls.compteur}"
+    
+    # Méthode statique - n'utilise ni self ni cls
+    @staticmethod
+    def methode_statique(x, y):
+        return x + y
+
+# Création d'instances
+obj1 = MaClasse(10)
+obj2 = MaClasse(20)
+
+# Appel de la méthode d'instance
+print(obj1.methode_instance())  # Output: Instance avec valeur: 10
+
+# Appel de la méthode de classe
+print(MaClasse.methode_classe())  # Output: Nombre total d'instances créées: 2
+
+# Appel de la méthode statique
+print(MaClasse.methode_statique(5, 3))  # Output: 8</code></pre>
+                </div>
+
+                <div class="note-box">
+                    <div class="box-icon">ℹ️</div>
+                    <div>
+                        <p>Les décorateurs <code>@classmethod</code> et <code>@staticmethod</code> sont utilisés pour définir respectivement les méthodes de classe et les méthodes statiques.</p>
+                    </div>
+                </div>
+
+                <h3>Encapsulation</h3>
+                <p>L'encapsulation est un concept de POO qui consiste à regrouper les données et les méthodes qui les manipulent et à restreindre l'accès direct à certaines composantes d'un objet.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">encapsulation.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class CompteBancaire:
+    def __init__(self, titulaire, solde=0):
+        self.titulaire = titulaire  # Attribut public
+        self._solde = solde        # Attribut protégé (convention)
+        self.__numero = "12345"    # Attribut privé (name mangling)
+    
+    def deposer(self, montant):
+        if montant > 0:
+            self._solde += montant
+            return True
+        return False
+    
+    def retirer(self, montant):
+        if 0 < montant <= self._solde:
+            self._solde -= montant
+            return True
+        return False
+    
+    def get_solde(self):
+        return self._solde
+    
+    def get_details(self):
+        return f"Titulaire: {self.titulaire}, Solde: {self._solde}€, Numéro: {self.__numero}"
+
+# Utilisation
+compte = CompteBancaire("Sophie Martin", 1000)
+
+# Accès aux attributs
+print(compte.titulaire)      # OK - attribut public
+print(compte._solde)         # Techniquement accessible, mais à éviter par convention
+# print(compte.__numero)     # Erreur - attribut privé
+
+# Utilisation des méthodes
+compte.deposer(500)
+compte.retirer(200)
+print(compte.get_solde())    # Output: 1300
+print(compte.get_details())  # Accès contrôlé via une méthode</code></pre>
+                </div>
+
+                <div class="warning-box">
+                    <div class="box-icon">⚠️</div>
+                    <div>
+                        <p>En Python, l'encapsulation est principalement une convention. Les attributs avec un underscore simple (_) sont considérés comme "protégés" par convention, mais restent accessibles. Les attributs avec un double underscore (__) subissent le "name mangling" qui rend l'accès plus difficile mais pas impossible.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="heritage">
+                <h2>Héritage</h2>
+                <p>L'héritage est un mécanisme qui permet à une classe de recevoir les attributs et méthodes d'une autre classe. La classe qui hérite est appelée <strong>classe dérivée</strong> ou <strong>sous-classe</strong>, et la classe dont elle hérite est appelée <strong>classe de base</strong> ou <strong>classe parent</strong>.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">heritage_simple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Animal:
+    def __init__(self, nom):
+        self.nom = nom
+    
+    def manger(self):
+        print(f"{self.nom} est en train de manger.")
+    
+    def dormir(self):
+        print(f"{self.nom} est en train de dormir.")
+
+# Chien hérite de Animal
+class Chien(Animal):
+    def aboyer(self):
+        print(f"{self.nom} aboie: Woof!")
+
+# Chat hérite de Animal
+class Chat(Animal):
+    def miauler(self):
+        print(f"{self.nom} miaule: Meow!")
+
+# Création d'instances
+mon_chien = Chien("Rex")
+mon_chat = Chat("Félix")
+
+# Utilisation des méthodes héritées
+mon_chien.manger()   # Output: Rex est en train de manger.
+mon_chat.dormir()    # Output: Félix est en train de dormir.
+
+# Utilisation des méthodes spécifiques
+mon_chien.aboyer()   # Output: Rex aboie: Woof!
+mon_chat.miauler()   # Output: Félix miaule: Meow!</code></pre>
+                </div>
+
+                <h3>Super(): Accéder aux méthodes de la classe parent</h3>
+                <p>La fonction <code>super()</code> permet d'appeler des méthodes de la classe parent. C'est particulièrement utile pour étendre le comportement d'une méthode héritée sans la réécrire complètement.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">utilisation_super.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Vehicule:
+    def __init__(self, marque, annee):
+        self.marque = marque
+        self.annee = annee
+    
+    def description(self):
+        return f"{self.marque} ({self.annee})"
+
+class Voiture(Vehicule):
+    def __init__(self, marque, annee, modele):
+        # Appel du constructeur parent
+        super().__init__(marque, annee)
+        self.modele = modele
+    
+    def description(self):
+        # Extension de la méthode parent
+        return f"{super().description()} - {self.modele}"
+
+# Création d'une voiture
+ma_voiture = Voiture("Toyota", 2020, "Corolla")
+print(ma_voiture.description())  # Output: Toyota (2020) - Corolla</code></pre>
+                </div>
+
+                <h3>Héritage multiple</h3>
+                <p>Python permet à une classe d'hériter de plusieurs classes parents, contrairement à certains langages comme Java.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">heritage_multiple.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class DispositivElectronique:
+    def __init__(self, marque, modele):
+        self.marque = marque
+        self.modele = modele
+        self.allume = False
+    
+    def allumer(self):
+        self.allume = True
+        print(f"{self.marque} {self.modele} est maintenant allumé.")
+    
+    def eteindre(self):
+        self.allume = False
+        print(f"{self.marque} {self.modele} est maintenant éteint.")
+
+class AppareilPhoto:
+    def __init__(self, megapixels):
+        self.megapixels = megapixels
+    
+    def prendre_photo(self):
+        print(f"Photo prise avec {self.megapixels} megapixels.")
+
+# Héritage multiple
+class Smartphone(DispositivElectronique, AppareilPhoto):
+    def __init__(self, marque, modele, megapixels, systeme_exploitation):
+        DispositivElectronique.__init__(self, marque, modele)
+        AppareilPhoto.__init__(self, megapixels)
+        self.systeme_exploitation = systeme_exploitation
+    
+    def passer_appel(self, numero):
+        if self.allume:
+            print(f"Appel en cours vers {numero}...")
+        else:
+            print("Le téléphone est éteint. Impossible de passer un appel.")
+
+# Création d'un smartphone
+mon_telephone = Smartphone("Samsung", "Galaxy S21", 108, "Android")
+mon_telephone.allumer()
+mon_telephone.prendre_photo()
+mon_telephone.passer_appel("0123456789")</code></pre>
+                </div>
+
+                <div class="warning-box">
+                    <div class="box-icon">⚠️</div>
+                    <div>
+                        <p>L'héritage multiple peut introduire de la complexité avec le problème du "diamant" lorsque plusieurs classes parentes héritent d'une même classe d'origine. Python résout ce problème avec l'ordre de résolution de méthode (MRO).</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="doc-section" id="polymorphisme">
+                <h2>Polymorphisme</h2>
+                <p>Le polymorphisme est la capacité d'utiliser une interface commune pour différents types de données. En Python, le polymorphisme est naturel grâce au typage dynamique.</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">polymorphisme.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Animal:
+    def __init__(self, nom):
+        self.nom = nom
+    
+    def faire_bruit(self):
+        pass  # Méthode à redéfinir dans les sous-classes
+
+class Chien(Animal):
+    def faire_bruit(self):
+        return f"{self.nom} aboie: Woof!"
+
+class Chat(Animal):
+    def faire_bruit(self):
+        return f"{self.nom} miaule: Meow!"
+
+class Canard(Animal):
+    def faire_bruit(self):
+        return f"{self.nom} cancane: Quack!"
+
+# Fonction polymorphique
+def faire_parler_animal(animal):
+    print(animal.faire_bruit())
+
+# Création d'instances
+animaux = [
+    Chien("Rex"),
+    Chat("Félix"),
+    Canard("Donald")
+]
+
+# Utilisation polymorphique
+for animal in animaux:
+    faire_parler_animal(animal)
+
+# Output:
+# Rex aboie: Woof!
+# Félix miaule: Meow!
+# Donald cancane: Quack!</code></pre>
+                </div>
+
+                <div class="tip-box">
+                    <div class="box-icon">💡</div>
+                    <div>
+                        <p>En Python, le polymorphisme est souvent associé au principe "duck typing": "Si ça marche comme un canard et ça fait coin-coin comme un canard, alors c'est probablement un canard". Cela signifie que l'accent est mis sur le comportement (méthodes) plutôt que sur le type réel de l'objet.</p>
+                    </div>
+                </div>
+
+                <h3>Surcharge d'opérateurs</h3>
+                <p>Python permet de personnaliser le comportement des opérateurs pour vos propres classes en utilisant des méthodes spéciales (ou "dunder methods").</p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-title">surcharge_operateurs.py</span>
+                        <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                    </div>
+                    <div class="copy-message">Copié !</div>
+                    <pre><code>class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    # Surcharge de l'opérateur + pour additionner deux vecteurs
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    # Surcharge de l'opérateur * pour multiplier par un scalaire
+    def __mul__(self, scalar):
+        return Vector(self.x * scalar, self.y * scalar)
+    
+    # Représentation sous forme de chaîne
+    def __str__(self):
+        return f"Vector({self.x}, {self.y})"
+    
+    # Représentation pour le développeur
+    def __repr__(self):
+        return self.__str__()
+
+# Création de vecteurs
+v1 = Vector(2, 3)
+v2 = Vector(5, 7)
+
+# Utilisation des opérateurs surchargés
+v3 = v1 + v2
+v4 = v1 * 2
+
+print(v3)  # Output: Vector(7, 10)
+print(v4)  # Output: Vector(4, 6)</code></pre>
+                </div>
+
+                <div class="note-box">
+                    <div class="box-icon">ℹ️</div>
+                    <div>
+                        <p>Python offre de nombreuses méthodes spéciales pour personnaliser le comportement des classes. Quelques exemples courants: <code>__init__</code> (constructeur), <code>__str__</code> (conversion en chaîne), <code>__len__</code> (longueur), <code>__getitem__</code> (accès par index), etc.</p>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <div class="demo-header">
+                        <h3 class="demo-title">Projet pratique: Système de gestion de bibliothèque</h3>
+                    </div>
+                    <p>Ce projet combine plusieurs concepts de POO que nous avons appris :</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-title">bibliotheque.py</span>
+                            <button class="copy-button"><span class="icon">📋</span> Copier</button>
+                        </div>
+                        <div class="copy-message">Copié !</div>
+                        <pre><code>class Publication:
+    def __init__(self, titre, annee):
+        self.titre = titre
+        self.annee = annee
+        self.disponible = True
+    
+    def emprunter(self):
+        if self.disponible:
+            self.disponible = False
+            return True
+        return False
+    
+    def retourner(self):
+        self.disponible = True
+    
+    def afficher_details(self):
+        statut = "disponible" if self.disponible else "emprunté"
+        return f"{self.titre} ({self.annee}) - {statut}"
+
+class Livre(Publication):
+    def __init__(self, titre, annee, auteur, pages):
+        super().__init__(titre, annee)
+        self.auteur = auteur
+        self.pages = pages
+    
+    def afficher_details(self):
+        base_info = super().afficher_details()
+        return f"{base_info}\nAuteur: {self.auteur}, Pages: {self.pages}"
+
+class Magazine(Publication):
+    def __init__(self, titre, annee, editeur, numero):
+        super().__init__(titre, annee)
+        self.editeur = editeur
+        self.numero = numero
+    
+    def afficher_details(self):
+        base_info = super().afficher_details()
+        return f"{base_info}\nÉditeur: {self.editeur}, Numéro: {self.numero}"
+
+class Bibliotheque:
+    def __init__(self, nom):
+        self.nom = nom
+        self.catalogue = []
+    
+    def ajouter_publication(self, publication):
+        self.catalogue.append(publication)
+    
+    def chercher_par_titre(self, mot_cle):
+        resultats = []
+        for pub in self.catalogue:
+            if mot_cle.lower() in pub.titre.lower():
+                resultats.append(pub)
+        return resultats
+    
+    def afficher_catalogue(self):
+        print(f"--- Catalogue de {self.nom} ---")
+        for i, pub in enumerate(self.catalogue, 1):
+            print(f"{i}. {pub.titre}")
+
+# Utilisation du système
+biblio = Bibliotheque("Bibliothèque Municipale")
+
+# Ajout de publications
+livre1 = Livre("Harry Potter et la Pierre Philosophale", 1997, "J.K. Rowling", 305)
+livre2 = Livre("Le Seigneur des Anneaux", 1954, "J.R.R. Tolkien", 423)
+mag1 = Magazine("Science & Vie", 2022, "Mondadori", 1253)
+
+biblio.ajouter_publication(livre1)
+biblio.ajouter_publication(livre2)
+biblio.ajouter_publication(mag1)
+
+# Affichage du catalogue
+biblio.afficher_catalogue()
+
+# Recherche de publications
+resultats = biblio.chercher_par_titre("harry")
+print("\nRésultats de recherche:")
+for pub in resultats:
+    print(pub.afficher_details())
+
+# Emprunt d'un livre
+livre1.emprunter()
+print("\nAprès emprunt:")
+print(livre1.afficher_details())</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <div class="navigation-buttons">
+                <button class="nav-button prev" onclick="location.href='chapitre4.html'"><span class="icon">← </span>Précédent </button>
+                <button class="nav-button next" onclick="location.href='prochainement.html'">Suivant <span class="icon">→</span></button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Toggle mobile sidebar
+        document.getElementById('mobileToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+        
+        // Chapter expand/collapse
+        document.querySelectorAll('.chapter-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const chapter = this.parentElement;
+                chapter.classList.toggle('expanded');
+            });
+        });
+        
+        // Copy button functionality
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const codeBlock = this.closest('.code-block');
+                const code = codeBlock.querySelector('code').textContent;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    const copyMessage = codeBlock.querySelector('.copy-message');
+                    copyMessage.style.opacity = '1';
+                    
+                    setTimeout(() => {
+                        copyMessage.style.opacity = '0';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
