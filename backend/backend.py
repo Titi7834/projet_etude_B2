@@ -213,4 +213,4 @@ def parse_test_results(logs):
         return [{'code': 'parsing', 'passed': False, 'error': 'Erreur lors de l\'analyse des résultats'}], ''
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True, ssl_context=('/etc/ssl/certs/apache-selfsigned.crt','/etc/ssl/private/apache-selfsigned.key'))
+    app.run(host='0.0.0.0', port=8000, debug=True)
