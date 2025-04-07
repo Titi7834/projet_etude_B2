@@ -333,12 +333,12 @@ Hello, Python!
     </div>
 
     <script>
-        // Mobile sidebar toggle
+        // Menu mobile toggle
         document.getElementById('mobileToggle').addEventListener('click', function () {
             document.getElementById('sidebar').classList.toggle('active');
         });
 
-        // Chapter expansion
+        // Chapter expand/collapse 
         document.querySelectorAll('.chapter-button').forEach(button => {
             button.addEventListener('click', function () {
                 const chapter = this.parentElement;
@@ -346,7 +346,7 @@ Hello, Python!
             });
         });
 
-        // Copy button functionality
+        // Bouton copier 
         document.querySelectorAll('.copy-button').forEach(button => {
             button.addEventListener('click', function () {
                 const codeBlock = this.closest('.code-block');

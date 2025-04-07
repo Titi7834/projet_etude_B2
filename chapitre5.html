@@ -727,12 +727,12 @@ print(livre1.afficher_details())</code></pre>
     </div>
 
     <script>
-        // Toggle mobile sidebar
+        // Activer menu mobile
         document.getElementById('mobileToggle').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('active');
         });
         
-        // Chapter expand/collapse
+        // Chapitre expand/collapse
         document.querySelectorAll('.chapter-button').forEach(button => {
             button.addEventListener('click', function() {
                 const chapter = this.parentElement;
@@ -740,7 +740,7 @@ print(livre1.afficher_details())</code></pre>
             });
         });
         
-        // Copy button functionality
+        // bouton copier 
         document.querySelectorAll('.copy-button').forEach(button => {
             button.addEventListener('click', function() {
                 const codeBlock = this.closest('.code-block');
